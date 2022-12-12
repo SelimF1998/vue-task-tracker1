@@ -8,10 +8,10 @@
     </button>
     
   </div>
-  <input placeholder="Search" class="bg-stone-600 focus:bg-stone-500 text-stone-200 p-2 outline-none rounded"
+  <input placeholder="Search" class="bg-stone-600 focus:bg-stone-500 text-stone-200 p-2 outline-none rounded w-60"
      @input="log()" v-model="input"
    />
-  <div v-for="task in filteredList" :key="task.id">
+  <div class="flex items-center justify-center" v-for="task in filteredList" :key="task.id">
     <div>
       <div class="rounded overflow-hidden shadow-lg w-96 bg-slate-200  ">
         <div class="px-6 py-4">
