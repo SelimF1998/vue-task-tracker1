@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-between">
         <h1 class="text-gray-500 font-bold text-3xl text-start">{{title}}</h1>
-        <Button text="Add Task" />   
+        <Button :showAddTask="showAddTask" @show-form="$emit('show-form')" text="Add Task" />   
     </div>
 </template>
 <script>
@@ -11,14 +11,15 @@ export default {
     name: "Header",
     props: {
         title: String,
+        showAddTask: Boolean,
     },
+    emits: ['show-form'],
     components: {
         Button,
-
+    },
+    methods: {
+        
     }
-
-    
-
 }
 </script>
 <style lang="">

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center ">
+  <div v-if="showAddTask" class="flex items-center justify-center ">
     <form @submit="onSubmit" class=" bg-slate-200 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
       <div class="mb-4">
         <label
@@ -61,6 +61,9 @@
 <script>
 export default {
     name: "AddTask",
+    props: {
+      showAddTask: Boolean
+    },
     data() {
         return {
             title: '',
@@ -79,20 +82,22 @@ export default {
             }
 
             const newTask = {
-                id: Math.floor(Math.random * 100000),
+                id: Math.floor(Math.random() * 100),
                 title: this.title,
                 description: this.description,
-                day: tis.day
+                day: this.day
             }
 
             this.title = '',
             this.description = '',
             this.day = ''
+
             
-            
+
+            this.$emit('add-task', newTask)    
         }
     }
 
 };
 </script>
-<style lang=""></style>
+<style></style>

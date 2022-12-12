@@ -1,8 +1,13 @@
 <template>
-    <div>
+    <div v-if="!showAddTask" >
         <button
          @click="onClick"
          class="bg-green-400 text-gray-200 font-bold rounded h-10 w-32">{{text}}</button>  
+    </div>
+    <div v-if="showAddTask" >
+        <button
+         @click="onClick"
+         class="bg-red-400 text-gray-200 font-bold rounded h-10 w-32">Hide Form</button>  
     </div>
 </template>
 <script>
@@ -10,14 +15,16 @@ export default {
     name: "Button",
     props: {
         text: String,
-
+        showAddTask : Boolean,
+    },
+    data() {
+        return {
+        }
     },
     methods: {
         onClick() {
-            console.log("clicked!")
-        }
-
-        
+            this.$emit('show-form')
+        }   
     }, 
     
 }

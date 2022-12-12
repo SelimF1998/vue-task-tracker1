@@ -1,11 +1,10 @@
 
 <template>
-  <div class=" p-12 space-y-5">
+  <div class="p-12 space-y-5">
     <div class="font-extrabold text-3xl text-red-500 text-center">App</div>
-    <Header title="Task Tracker" />
-    <AddTask />
-    <Tasks @delete-task="deleteTask" :tasks="tasks" />
-    
+    <Header :showAddTask="showAddTask" @show-form="showForm" title="Task Tracker" />
+    <AddTask :showAddTask="showAddTask" @add-task="addTask" />
+    <Tasks @delete-task="deleteTask" :tasks="tasks" /> 
   </div>
 </template>
 
@@ -23,16 +22,26 @@ export default {
     Tasks,
     AddTask,
   },
+  emits: ['add-task', 'show-form'],
   data() {
     return {
-      tasks: []
+      tasks: [],
+      showAddTask: false
     }
-  },
+  }, 
   methods: {
     deleteTask(id) {
       if (confirm("Are you sure?")) {
         this.tasks = this.tasks.filter(task => task.id !== id)
       } 
+    },
+    addTask(newTask) {
+      console.log(newTask)
+      this.tasks.push(newTask)
+    },
+    showForm() {
+      console.log("clicked")
+      this.showAddTask = !this.showAddTask
     }
   },
   created() {
