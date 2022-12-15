@@ -7,7 +7,7 @@
     <div v-if="showAddTask" >
         <button
          @click="onClick"
-         class="bg-red-400 text-gray-200 font-bold rounded h-10 w-32">Hide Form</button>  
+         class="bg-red-400 text-gray-200 font-bold rounded h-10 w-32">{{text}}</button>  
     </div>
 </template>
 <script>
