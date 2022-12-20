@@ -14,9 +14,7 @@ export default {
     components: {
       Task
     },
-    emits: ['delete-task']
-
-    
+    emits: ['delete-task']    
 }
 </script>
 <style>

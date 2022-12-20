@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-between">
+    <div v-show="showPage" class="flex justify-between">
         <h1 class="text-gray-500 font-bold text-3xl text-start">{{title}}</h1>
         <Button :showAddTask="showAddTask" @show-form="$emit('show-form')" :text="showAddTask ? 'Close' : 'Add Task'" />   
     </div>
@@ -17,8 +17,17 @@ export default {
     components: {
         Button,
     },
-    methods: {
-        
+    methods: {  
+    },
+    computed: {
+        showPage() {
+            if (this.$route.path === "/") {
+                return true
+            } else {
+                return false
+            }
+        }
+
     }
 }
 </script>
