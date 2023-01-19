@@ -1,7 +1,7 @@
 <template>
   <div class="p-12 space-y-5">
     <AddTask :showAddTask="showAddTask" @add-task="addTask" />
-    <Tasks @delete-task="deleteTask" :tasks="tasks" />
+    <Tasks @delete-task="deleteTask" :tasks="tasks" :searchInput="searchInput" />
   </div>
 </template>
 <script>
@@ -11,7 +11,8 @@ import AddTask from "../components/AddTask.vue"
 export default {
     name: "home",
     props: {
-        showAddTask: Boolean
+        showAddTask: Boolean,
+        searchInput: String
     },
     components: {
         Tasks,

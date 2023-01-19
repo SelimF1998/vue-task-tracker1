@@ -1,8 +1,8 @@
 <template>
   <div class="p-12 space-y-5">
     <div class="font-extrabold text-3xl text-red-500 text-center">App</div>
-    <Header :showAddTask="showAddTask" @show-form="showForm" title="Task Tracker" />
-    <router-view :showAddTask="showAddTask"></router-view>
+    <Header :showAddTask="showAddTask" @show-form="showForm" @search-input="search" title="Task Tracker" />
+    <router-view :showAddTask="showAddTask" :searchInput="searchInput"></router-view>
     <Footer />
   </div>
 </template>
@@ -18,17 +18,21 @@ export default {
     Header,
     Footer,
   },
-  emits: ['show-form'],
+  emits: ['show-form', ],
   data() {
     return {
-      showAddTask: false
+      showAddTask: false,
+      searchInput: ""
     }
   }, 
   methods: {
     showForm() {
       console.log("clicked")
       this.showAddTask = !this.showAddTask
-    } 
+    },
+    search(searchInput) {
+      this.searchInput = searchInput
+    }
   },  
 }
 </script>

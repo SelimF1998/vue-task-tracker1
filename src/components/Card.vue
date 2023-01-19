@@ -67,13 +67,11 @@ export default {
       this.tasks = this.tasks.filter( t => t.id != id)
     },
     onChange(event) {
-      this.tasks = this.tasks.filter(e => e.title == event.target.value)
-      
+      this.tasks = this.tasks.filter(e => e.title == event.target.value)  
     },
     log() {
       console.log(this.input);
-      if (this.input == "") {
-        
+      if (this.input == "") {  
       }
     }
     
@@ -85,7 +83,6 @@ export default {
       }
       return this.tasks.filter(t => t.title.toUpperCase().includes(this.input.toUpperCase()))
     }
-
   },
   
   data() {
