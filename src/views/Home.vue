@@ -7,6 +7,7 @@
 <script>
 import Tasks from "../components/Tasks.vue"
 import AddTask from "../components/AddTask.vue"
+import { mapGetters, mapActions } from "vuex";
 
 export default {
     name: "home",
@@ -34,37 +35,10 @@ export default {
       this.tasks.push(newTask)
     },
   },
+  computed: mapGetters(["allTasks"]),
   created() {
-    this.tasks = [
-      {
-        id: 1,
-        title: "Doctor Appointment",
-        description: "Description 1",
-        day: "March 1st at 2:30 PM",
-        reminder: true
-      },
-      {
-        id: 2,
-        title: "Feed The Dog",
-        description: "Description 2",
-        day: "February 2nd at 9:00 AM",
-        reminder: true
-      },
-      {
-        id: 3,
-        title: "Do Some School Homeworks",
-        description: "Description 3",
-        day: "July 11th at 8:00 PM",
-        reminder: false
-      },
-      {
-        id: 4,
-        title: "Fuck A Girl",
-        description: "Description 4",
-        day: "Everyday",
-        reminder: true
-      }
-    ] 
+    this.tasks = this.allTasks
+    console.log(this.tasks)
   },
 };
 </script>
