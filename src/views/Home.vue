@@ -39,6 +39,7 @@ export default {
   created() {
     this.tasks = this.allTasks
     console.log(this.tasks)
+    console.log(this.allTasks)
   },
 };
 </script>
